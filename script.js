@@ -1,11 +1,7 @@
-const author = document.querySelector("#author");
-const title = document.querySelector("#title");
-const pages = document.querySelector("#pages");
-const status = document.querySelector("#status");
-const addBtn = document.querySelector(".addBook");
-const library = document.querySelector(".library");
-const form = document.querySelector("form");
-let isClicked = true;
+const author = document.getElementById("author");
+const title = document.getElementById("title");
+const pages = document.getElementById("pages");
+const status = document.getElementById("status");
 
 let myLibrary = [];
 
@@ -26,6 +22,7 @@ function addBookToLibrary() {
   myLibrary.push(newBook);
 }
 
+const library = document.querySelector(".library");
 function createBookCard() {
   const bookCard = document.createElement("div");
   bookCard.classList.add("card");
@@ -60,16 +57,16 @@ function createBookCard() {
   cardBtns.appendChild(removeBtn);
 }
 
-addBtn.addEventListener("click", () => {
-  if (isClicked) {
-    form.style.display = "block";
-    isClicked = false;
-  } else {
-    form.style.display = "none";
-    isClicked = true;
-  }
-});
+const popup = document.getElementById("popup");
+function openPopUp() {
+  popup.classList.add("open-popup");
+}
 
+function closePopUp() {
+  popup.classList.remove("open-popup");
+}
+
+const form = document.querySelector("form");
 form.addEventListener("submit", (e) => {
   e.preventDefault();
   addBookToLibrary();

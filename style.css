@@ -31,13 +31,13 @@ main {
   padding: var(--padding);
 }
 
-.button {
+.button-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.addBook {
+.add-btn {
   font-size: 20px;
   background-color: var(--grey);
   border: none;
@@ -48,8 +48,12 @@ main {
   padding: 1em 1.33em;
 }
 
-form {
+.popup {
   display: none;
+}
+
+.open-popup {
+  display: block;
 }
 
 .library {

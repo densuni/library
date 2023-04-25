@@ -2,7 +2,7 @@ const author = document.querySelector("#author");
 const title = document.querySelector("#title");
 const pages = document.querySelector("#pages");
 const status = document.querySelector("#status");
-const addBtn = document.querySelector(".addNewBook");
+const addBtn = document.querySelector(".addBook");
 const library = document.querySelector(".library");
 const form = document.querySelector("form");
 let isClicked = true;
@@ -28,9 +28,10 @@ function addBookToLibrary() {
 
 function createBookCard() {
   const bookCard = document.createElement("div");
+  bookCard.classList.add("card");
   library.appendChild(bookCard);
 
-  const bookTitle = document.createElement("h2");
+  const bookTitle = document.createElement("h3");
   bookTitle.textContent = title.value;
   bookCard.appendChild(bookTitle);
 
@@ -39,8 +40,12 @@ function createBookCard() {
   bookCard.appendChild(bookAuthor);
 
   const numberOfPages = document.createElement("p");
-  numberOfPages.textContent = `${pages.value} pages`;
+  numberOfPages.textContent = `${pages.value} Pages`;
   bookCard.appendChild(numberOfPages);
+
+  const cardBtns = document.createElement("div");
+  cardBtns.classList.add("card-btns");
+  bookCard.appendChild(cardBtns);
 
   const statusBtn = document.createElement("button");
   if (status.checked) {
@@ -48,7 +53,11 @@ function createBookCard() {
   } else {
     statusBtn.textContent = "Not Read";
   }
-  bookCard.appendChild(statusBtn);
+  cardBtns.appendChild(statusBtn);
+
+  const removeBtn = document.createElement("button");
+  removeBtn.textContent = "Remove";
+  cardBtns.appendChild(removeBtn);
 }
 
 addBtn.addEventListener("click", () => {
